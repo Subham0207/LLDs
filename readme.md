@@ -3,6 +3,7 @@
 - statemachine design: enums (Like: START | INPROCESS | FINISHED)
 - Interface/abstract classes aka Strategy pattern: support extensibility/multiple forms (Like: types of rate limiter implementation)
 - Service class: managing multiple single responsible objects (Like: BookingService)
+- Don't introduce external dependency like redis. Use a obj/map to store data.
 
 # Framework for LLD
 
