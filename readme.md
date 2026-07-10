@@ -48,3 +48,5 @@ Behavioural Pattern
 - Strategy
 - Observer
 - Statemachine
+- chain of responsibility principle
+    - class BaseHandler; class Handler: BaseHandler; build a chain of Handler using Handler.next
