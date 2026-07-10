@@ -43,7 +43,7 @@ interface FixedWindowBucket
 
 export class FixedWindow implements Ratelimiter {
     private readonly rl: RatelimitPolicy;
-    private storage: Map<string, FixedWindowBucket>; // ratelimitkey: string, timestamps: number[]
+    private storage: Map<string, FixedWindowBucket>; // ratelimitkey: string, {windowstarttime, count}
     constructor(rl: RatelimitPolicy) { 
         this.rl = rl;
         this.storage = new Map<string, FixedWindowBucket>();
