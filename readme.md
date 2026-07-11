@@ -12,7 +12,7 @@
     - errors
         - Timeouts - 
         - Deadlocks - infinite wait
-        - Invalid input - max size, format, etc.
+        - Invalid input - max size, format, location, etc.
     - out of scope
         - Auth/Author
     - non functional requirements
@@ -70,12 +70,30 @@ Behavioural Pattern
 
 Lock and Atomic primitives
 `
+    // when multiple variables are involved
     lock{
         ...    
     }
 
+    // single variable is involved
     AtomicInteger a = 0;
     a.increment();
+
+    // try lock
+    try{
+        while(retry < maxRetries)
+        {
+            retry++;                    
+            if(lock.tryLock(500ms))
+            {
+                acquired=true;
+                ...
+            }
+        }
+    } finally {
+        !acquired && throw error();
+        lock.release();
+    }
 `
 
 Bounded blocking queue

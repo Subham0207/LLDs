@@ -9,8 +9,8 @@ Error
 Out of scope
 - distributed application
 Non functional requirement
-- keep level extendible
-- keep places to log to extendible
+- keep level extensible
+- keep places to log to extensible
 - Thread safety b/w multiple process to log to same place.
 
 
@@ -61,7 +61,7 @@ class Logger
 }
 
 interface LogTarget{
-    public write(LogMessage);
+    public Task write(LogMessage);
 }
 
 class File: LogTarget{
@@ -77,7 +77,7 @@ class File: LogTarget{
         }
         }
 
-        write(LogMessage)
+        Task write(LogMessage)
         {
             try{
                 while(retry < maxRetries)
@@ -110,3 +110,9 @@ class Console: LogTarget{
     public:
         write(LogMessage)
 }
+
+const logger = new Logger(); // singleton
+logger.addTarget(new Console());
+logger.addTarget(new File());
+
+logger.info(Log::Warn, "invalid payload");
