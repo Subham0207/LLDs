@@ -47,5 +47,7 @@ class EventService
            })
         }
         )
+
+        this.queue.clear();
     }
 }
