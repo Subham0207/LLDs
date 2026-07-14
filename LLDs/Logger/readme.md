@@ -1,5 +1,8 @@
 # Logger
 
+# Solution
+- using chain of responsibility for Different levels of loggers. Since levels can be added or removed.
+
 1. Requirements
 - log levels (extendible), timestamp, message
 - log to multiple places like  file, console ( extensibility )

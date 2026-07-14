@@ -19,6 +19,7 @@
         - extensibility
         - concurrency and thread safety
         - Memory efficiency
+        - idempotency
 2. Core entities, Relationship, and state modelling ( if any for stateful systems)
 3. Class Design
 4. Implmentation
@@ -50,7 +51,7 @@ Behavioural Pattern
     - notifyObservers(){ for observer in observers{ observer.update() } }
 - Statemachine
     - enums for states
-- chain of responsibility principle
+- chain of responsibility principle: extension required. no. of handlers not known.
     - class BaseHandler; class Handler: BaseHandler; build a chain of Handler using Handler.next
 - circuit breaker
 
